@@ -14,7 +14,7 @@ phases:
       # Install phase (empty here since the CodeBuild image has necessary tools)
       - echo "Install Phase - Nothing to do using latest Amazon Linux Docker Image"
   
-  pre-build:
+  pre_build:
     commands:
       # Generate a short Docker image tag using GitHub commit SHA (7 characters)
       - IMAGE_TAG="$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c1-7)"
@@ -28,7 +28,7 @@ phases:
       - echo "Building Docker image..."
       - docker build -t $IMAGE_URI:$IMAGE_TAG .
   
-  post-build:
+  post_build:
     commands:
       # Push the built Docker image to ECR repository
       - echo "Pushing Docker image to ECR..."
