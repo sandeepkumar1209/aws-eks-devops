@@ -21,7 +21,7 @@ phases:
       - export IMAGE_TAG
       # Authenticate Docker with ECR using AWS CLI
       - echo "Logging into Amazon ECR at $IMAGE_URI..."
-      - aws ecr get-login-password --region | docker login --username AWS --password-stdin $IMAGE_URI
+      - aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin $IMAGE_URI
   
   build: 
     commands:
